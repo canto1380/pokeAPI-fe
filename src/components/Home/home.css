@@ -1,0 +1,8 @@
+.rowContainer {
+  padding: 10px 60px 30px 60px;
+}
+.listDecoration {
+  list-style-type:square;
+  text-decoration: none;
+  color: rgb(86, 83, 83);
+}
