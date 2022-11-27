@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { pokemonById } from "../../utils/queryAPI/pokemon";
+import { Col, Container, Row, ListGroup } from "react-bootstrap";
 
 const PokeData = () => {
   const { id } = useParams();
   const [pokemonData, setPokemonData] = useState("");
-  
-  useEffect(() => {
-    consultaPokemonById();
-  }, []);
 
-  const consultaPokemonById = async () => {
-    const data = await pokemonById(id);
-    setPokemonData(data);
-  };
+  useEffect(() => {
+    const consultaPokemonById = async () => {
+      const data = await pokemonById(id);
+      setPokemonData(data);
+    };
+    consultaPokemonById();
+  }, [id]);
+
+
   return (
     <Container>
       {pokemonData === "" ? (
